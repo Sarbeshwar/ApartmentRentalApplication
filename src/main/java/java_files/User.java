@@ -2,15 +2,26 @@ package java_files;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="User")
+
 public class User 
 {
+	public User(String number, String name, String status, String dob, String username, String password) {
+		super();
+		this.number = number;
+		this.name = name;
+		this.status = status;
+		this.dob = dob;
+		this.username = username;
+		this.password = password;
+	}
+
 	@Id	
 	@Column(name="number")
 	public String number;
@@ -24,13 +35,9 @@ public class User
 	@Column(name="dob")
 	public String dob;
 	
-	@NotNull(message="is required")
-	@Size(min=1,message="is required")
 	@Column(name="username")
 	public String username;
 	
-	@NotNull(message="is required")
-	@Size(min=1,message="is required")
 	@Column(name="password")
 	public String password;
 
@@ -38,6 +45,8 @@ public class User
 	{
 		
 	}
+	
+	
 
 	public String getName() {
 		return name;

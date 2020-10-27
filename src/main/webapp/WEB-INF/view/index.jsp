@@ -20,8 +20,7 @@
 				class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
 				<svg fill="none" stroke="currentColor" stroke-linecap="round"
 					stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-                    <img src="${pageContext.request.contextPath}/resources/images/viewundraw_at_home_octe.svg" width="65"
-						height="65">
+                    <img src="${pageContext.request.contextPath}/resources/images/viewundraw_at_home_octe.svg" width="65" height="65">
                   </svg> <span class="ml-3 text-xl">Property4Rent</span>
 			</a>
 			<nav
@@ -30,6 +29,7 @@
 				<a class="mr-5 hover:text-gray-900" href="/AppartmentRental/login">Login</a>
 				<a class="mr-5 hover:text-gray-900" href="/AppartmentRental/registration">Registration</a> 
 				<a class="mr-5 hover:text-gray-900" href="/AppartmentRental/availableDatabase">View Existing Database</a>
+				<a class="mr-5 hover:text-gray-900" href="/AppartmentRental/Admin">Admin Panel</a>
 			</nav>
 		</div>
 	</header>

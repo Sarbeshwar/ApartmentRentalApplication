@@ -7,8 +7,8 @@ public class testDatabase
 {
 	public static void main(String[] args)
 	{
-		String user = "hbstudent";
-		String pass = "hbstudent";
+		String user = "root";
+		String pass = "@mik@ool";
 
 		String jdbcUrl = "jdbc:mysql://localhost:3306/appartmentrental?useSSL=false&serverTimezone=UTC";
 		String driver="com.mysql.cj.jdbc.Driver";

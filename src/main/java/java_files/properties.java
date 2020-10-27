@@ -43,7 +43,7 @@ public class properties
 	@Size(min=1,message="is required")
 	public String lister_name;
 	
-	public properties ()
+	public properties()
 	{
 		
 	}

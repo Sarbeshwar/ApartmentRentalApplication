@@ -1,15 +1,12 @@
 package java_files;
 
-import java.util.List;
+import java.util.List;	
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,23 +22,12 @@ public class controller
 		return "index";
 	}
 	
+	
+	
 	@RequestMapping("/login")
-	public String getLoginPage(Model model,@ModelAttribute("user") User user)
+	public String getLoginPage()
 	{
 		return "login";
-	}
-	
-	@RequestMapping("/verifyUser")
-	public String verifyUser( @Valid @ModelAttribute("user") User user, BindingResult br)
-	{
-		if(br.hasErrors())
-		{
-			return "login";
-		}
-		else
-		{
-			return "userLogin";	
-		}
 	}
 	
 	@RequestMapping("/registration")
@@ -51,17 +37,15 @@ public class controller
 	}
 	
 	@PostMapping("/saveUser")
-	public String saveUser(HttpServletRequest req,Model model)
+	public String saveUser(HttpServletRequest req)
 	{
 		User user=new User();
-		
 		String name=req.getParameter("name");
 		String status=req.getParameter("status");
 		String dob=req.getParameter("dob");
 		String contact=req.getParameter("contact");
 		String username=req.getParameter("username");
 		String password=req.getParameter("password");
-		
 		user.setName(name);
 		user.setStatus(status);
 		user.setDob(dob);

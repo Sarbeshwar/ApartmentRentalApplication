@@ -1,13 +1,9 @@
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 
 <head>
     <title>
         LOGIN
     </title>
-    <style>
-    .error{color:red}
-    </style>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
@@ -31,24 +27,28 @@
 
     <center>
     <div class="max-w-lg mt-20">
-        <form:form action="verifyUser" modelAttribute="user" class="bg-white rounded px-10 pt-10 pb-10 mb-10 ">
-		<table>
-			<tr>
-				<td>Username: <form:input path="username" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/></td>
-				<td><form:errors path="username" cssClass="error" /></td>
-			</tr>
-			<tr>
-				<td>password: <form:input path="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"/></td>
-				<td><form:errors path="password" cssClass="error" /></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="SIGN IN" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4"/></td>
-			</tr>
-		</table>
-	</form:form>
-	<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4" type="button">
-              <a href="/AppartmentRental/registration">Sign Up</a>              
+        <form class="bg-white  rounded px-10 pt-10 pb-10 mb-10 ">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+              Username
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Enter Username">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+              Password
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Enter Password">
+          </div>
+          <div class="flex items-center justify-between">
+          </div>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4" type="button">
+            Sign In
           </button>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4" type="button" onclick="window.location.href='/AppartmentRental/registration';">
+              Sign Up              
+          </button>
+        </form>
       </div>
     </center>
 

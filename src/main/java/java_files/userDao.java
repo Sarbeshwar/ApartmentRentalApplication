@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,15 +17,27 @@ public class userDao
 	@Autowired
 	public SessionFactory sessionFactory;
 	
-	
 	@Transactional
 	public List<User> getUsers()
 	{
 		
+//		Session session=sessionFactory.openSession();
+//		String hql="from User";
+////		Query<User> query=session.createQuery("from User",User.class);
+//		
+//		List<User> users=session.createQuery(hql).list();
+//		if(users.size()>0)
+//		{
+//			System.out.println("List Rendering");
+//			System.out.println(users.toString());
+//		}
+//		else
+//		{
+//			System.out.println("List Not Rendered");
+////		}
+//		return users;
 		return sessionFactory.getCurrentSession().createQuery("from User").list();
 	}
-	
-	
 	
 	@Transactional
 	public void createUser(User user) 
@@ -36,33 +47,4 @@ public class userDao
 		session.save(user);
 //		session.getTransaction().commit();
 	}
-	
-	//TenantDao
-	
-	@Transactional
-	public List<properties> getProperties(){
-		
-		return sessionFactory.getCurrentSession().createQuery("from properties").list();
-	}
-	
-	@Transactional
-	public List<properties> search(String keyword){
-		return sessionFactory.getCurrentSession().createQuery("from properties where (no_of_rooms LIKE '%"+keyword+"%' OR furnished_status LIKE '%"+keyword+"%' OR lister_name LIKE '%"+keyword+"%' OR type_of_accommodation LIKE '%"+keyword+"%' OR location LIKE '%"+keyword+"%')").list();
-	}
-
-
-    @Transactional
-	public properties find(String id) {
-		
-		return (properties)sessionFactory.getCurrentSession().createCriteria(properties.class).add(Restrictions.eq("id",id)).uniqueResult();
-	}
-
-
-
-
-
-    
-	
-	
-	
 }
